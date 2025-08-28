@@ -20,8 +20,8 @@ public class AssetService {
         return assetRepository.save(asset);
     }
 
-    public Asset getAssetById(Long assetId) {
-        return assetRepository.getReferenceById(assetId);
+    public Asset getAssetById(Long id) {
+        return assetRepository.findById(id).orElse(null);
     }
 
     public List<Asset> getAllAssets() {
@@ -32,8 +32,8 @@ public class AssetService {
         return assetRepository.findByOwnerId(ownerId);
     }
 
-    public void deleteAsset(Long assetId) {
-        assetRepository.deleteById(assetId);
+    public void deleteAsset(Long id) {
+        assetRepository.deleteById(id);
     }
 
 }
